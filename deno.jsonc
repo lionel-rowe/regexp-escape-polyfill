@@ -3,6 +3,7 @@
 	"tasks": {},
 	"imports": {
 		"@std/assert": "jsr:@std/assert@^1.0.2",
+		"@std/fmt": "jsr:@std/fmt@^1.0.0",
 		"@std/fs": "jsr:@std/fs@^1.0.1"
 	},
 	"fmt": {
