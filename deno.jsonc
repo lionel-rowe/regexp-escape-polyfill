@@ -11,7 +11,7 @@
 		"indentWidth": 4,
 		"singleQuote": true,
 		"proseWrap": "preserve",
-		"exclude": []
+		"exclude": ["test262"]
 	},
 	"compilerOptions": { "strict": true },
 	"lint": {
