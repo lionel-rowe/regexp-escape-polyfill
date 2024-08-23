@@ -1,7 +1,6 @@
 #!/usr/bin/env -S deno run -A --watch
 
 import { format as formatMs } from '@std/fmt/duration'
-import { format as formatSize } from '@std/fmt/bytes'
 import { configs } from './bench/configs.ts'
 
 const cwd = new URL(import.meta.resolve('./')).pathname
@@ -18,17 +17,9 @@ const perfData = JSON.parse(td.decode(
 
 let benchmarks = `\`\`\`txt\n${perfData.runtime}\n${perfData.cpu}\n\`\`\`\n\n`
 
-const headers = ['Name', 'Time (avg)', 'Iter/s', 'Bundle size (minified)', 'Details']
+const headers = ['Name', 'Time (avg)', 'Iter/s', 'Bundle size (minified + gzipped)', 'Details']
 benchmarks += headers.join(' | ') + '\n'
 benchmarks += headers.map(() => '---').join('|') + '\n'
-
-const sizeData: { name: string; byteLength: number }[] = JSON.parse(td.decode(
-	(await new Deno.Command(Deno.execPath(), {
-		args: ['run', '-A', './bench/size.ts'],
-		stdout: 'piped',
-		cwd,
-	}).spawn().output()).stdout,
-))
 
 for (const { name, results } of perfData.benches) {
 	const { pathname } = new URL(name)
@@ -38,14 +29,13 @@ for (const { name, results } of perfData.benches) {
 	const iterPerSec = (1e9 / results[0].ok.avg).toLocaleString('en-US', {
 		maximumFractionDigits: 1,
 	})
-	const { byteLength } = sizeData.find(({ name: n }) => n === name)!
-	const { details } = configs.find(({ repo }) => repo === name)!
+	const { details, size } = configs.find(({ repo }) => repo === name)!
 
 	benchmarks += [
 		`[${pathname.slice(1)}](${name})`,
 		avgTime,
 		iterPerSec,
-		formatSize(byteLength),
+		`[${size.value}](${size.link})`,
 		details,
 	].join(' | ') +
 		'\n'

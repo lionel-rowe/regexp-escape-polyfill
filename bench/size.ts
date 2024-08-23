@@ -1,5 +1,7 @@
 #!/usr/bin/env -S deno run -A --watch
 
+// gives very large bundle sizes for libs fetched via esm.sh, so not using this for now
+
 import { denoPlugins } from '@luca/esbuild-deno-loader'
 import { parse } from '@std/jsonc'
 import { configs } from './configs.ts'
