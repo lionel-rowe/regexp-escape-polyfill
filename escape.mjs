@@ -1,4 +1,5 @@
 // @ts-check
+/// <reference types="./types.ts" />
 
 const SYNTAX_CHARACTERS = /[\^$\\.*+?()[\]{}|]/
 

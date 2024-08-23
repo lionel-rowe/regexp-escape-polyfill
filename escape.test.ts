@@ -3,10 +3,8 @@
 import { assertEquals, assertMatch } from '@std/assert'
 import { regExpEscape } from './escape.mjs'
 
-const str = 'Hello, 🌍!$^.'
-
 const tests = [
-	[str, '\\x48ello\\x2c\\x20🌍\\x21\\$\\^\\.'],
+	['Hello, 🌍!$^.', '\\x48ello\\x2c\\x20🌍\\x21\\$\\^\\.'],
 	['_foo', '_foo'],
 	['foo', '\\x66oo'],
 	['\n', '\\n'],
@@ -18,14 +16,14 @@ const tests = [
 
 Deno.test('regExpEscape()', async (t) => {
 	for (const [input, expected] of tests) {
-		await t.step(input, () => {
-			assertEquals(regExpEscape(input), expected)
+		await t.step(input, async (t) => {
+			await t.step('escaping', () => {
+				assertEquals(regExpEscape(input), expected)
+			})
+
+			await t.step('matching', () => {
+				assertMatch(input, new RegExp(regExpEscape(input)))
+			})
 		})
 	}
-})
-
-Deno.test('matching', async (t) => {
-	await t.step('matches', () => {
-		assertMatch(str, new RegExp(regExpEscape(str)))
-	})
 })

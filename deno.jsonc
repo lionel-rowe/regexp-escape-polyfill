@@ -1,5 +1,13 @@
 {
 	"lock": false,
+	"name": "@li/regexp-escape-polyfill",
+	"version": "0.1.0",
+	"exports": {
+		".": "./escape.mjs"
+		// // Polyfill version can't currently be distributed via JSR due to
+		// // lack of support for global type augmentations https://github.com/denoland/deno/issues/23427
+		// "polyfill": "./polyfill.mjs",
+	},
 	"tasks": {},
 	"imports": {
 		"@cliffy/table": "https://deno.land/x/cliffy@v1.0.0-rc.4/table/mod.ts",
@@ -29,5 +37,12 @@
 			"include": []
 		}
 	},
-	"exclude": []
+	"exclude": [],
+	"publish": {
+		"exclude": [
+			"test262",
+			"bench",
+			"**/*.test.ts"
+		]
+	}
 }
