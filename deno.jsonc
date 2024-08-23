@@ -17,6 +17,7 @@
 		"@std/fs": "jsr:@std/fs@^1.0.1",
 		"@std/jsonc": "jsr:@std/jsonc@^1.0.0",
 		"@std/regexp/escape": "jsr:@std/regexp@^1.0.0/escape",
+		"core-js-pure/": "https://esm.sh/v135/core-js-pure@3.38.1/",
 		"esbuild": "npm:esbuild@^0.23.1"
 	},
 	"fmt": {

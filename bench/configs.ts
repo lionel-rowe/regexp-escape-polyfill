@@ -21,6 +21,12 @@ export const configs: Config[] = [
 			`Aims for ES3 compliance; written with CJS modules; more closely follows the implementation details of the algorithm in the spec.`,
 	},
 	{
+		repo: 'https://github.com/zloirock/core-js',
+		import: 'core-js-pure/actual/regexp/escape',
+		ident: 'default',
+		details: `CoreJS implementation; ES5 (?) support including various other polyfills; written with CJS modules`,
+	},
+	{
 		repo: 'https://github.com/denoland/std',
 		import: '@std/regexp/escape',
 		ident: 'escape',

@@ -14,7 +14,8 @@ await using esbuild = await (async () => {
 	})
 })()
 
-const { imports } = parse(await Deno.readTextFile('./deno.jsonc'))
+// deno-lint-ignore no-explicit-any
+const { imports } = parse(await Deno.readTextFile('./deno.jsonc')) as any
 const importMapURL = `data:application/json;base64,${btoa(JSON.stringify({ imports }))}`
 
 class TempFile {
