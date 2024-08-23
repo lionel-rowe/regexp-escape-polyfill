@@ -1,3 +1,5 @@
+#!/usr/bin/env -S deno run -A --watch
+
 import { stripAnsiCode } from '@std/fmt/colors'
 
 const output = await new Deno.Command(Deno.execPath(), {

@@ -4,7 +4,8 @@
 	"imports": {
 		"@std/assert": "jsr:@std/assert@^1.0.2",
 		"@std/fmt": "jsr:@std/fmt@^1.0.0",
-		"@std/fs": "jsr:@std/fs@^1.0.1"
+		"@std/fs": "jsr:@std/fs@^1.0.1",
+		"@std/regexp": "jsr:@std/regexp@^1.0.0"
 	},
 	"fmt": {
 		"semiColons": false,

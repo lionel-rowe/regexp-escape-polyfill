@@ -1,7 +1,7 @@
 #!/usr/bin/env -S deno test -A --watch
 
 import './polyfill.mjs'
-import { walk } from 'jsr:@std/fs'
+import { walk } from '@std/fs'
 
 for (
 	const [fileName, idents] of [
