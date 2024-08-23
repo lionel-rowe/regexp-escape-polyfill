@@ -13,8 +13,7 @@ const versions = await Promise.all(configs.map(async ({ repo, import: import_, i
 }))
 
 for (const { repo, fn } of versions) {
-	const { pathname } = new URL(repo)
-	Deno.bench(pathname.slice(1), () => {
+	Deno.bench(repo, () => {
 		fn(str)
 	})
 }

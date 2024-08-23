@@ -2,9 +2,7 @@
 
 import { denoPlugins } from '@luca/esbuild-deno-loader'
 import { parse } from '@std/jsonc'
-import { format } from '@std/fmt/bytes'
 import { configs } from './configs.ts'
-import { Table } from '@cliffy/table'
 
 await using esbuild = await (async () => {
 	const mod = await import('esbuild')
@@ -44,15 +42,9 @@ const results = await Promise.all(configs.map(async (config) => {
 		outfile: path,
 	})
 
-	const { pathname } = new URL(config.repo)
-
 	const out = await Deno.readFile(path)
 
-	return { name: pathname.slice(1), size: format(out.length) }
+	return { name: config.repo, byteLength: out.length }
 }))
 
-const headings = Object.keys(results[0])
-
-console.info(
-	new Table().border().header(headings).body(results.map((r) => Object.values(r))).toString(),
-)
+console.info(JSON.stringify(results, null, '\t'))
