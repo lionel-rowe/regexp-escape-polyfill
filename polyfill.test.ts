@@ -1,12 +1,12 @@
 #!/usr/bin/env -S deno test -A --watch
 
 import './polyfill.mjs'
-import type { RegExpEscapeFn } from './polyfill.mjs'
+import type { regExpEscape } from './polyfill.mjs'
 import { assertEquals, assertMatch } from '@std/assert'
 
 declare global {
 	interface RegExpConstructor {
-		escape: RegExpEscapeFn
+		escape: typeof regExpEscape
 	}
 }
 

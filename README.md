@@ -33,11 +33,11 @@ new RegExp(RegExp.escape(str)).test(str) // true
 
 ```ts
 import 'jsr:@li/regexp-escape-polyfill/global'
-import type { RegExpEscapeFn } from 'jsr:@li/regexp-escape-polyfill/global'
+import type { regExpEscape } from 'jsr:@li/regexp-escape-polyfill/global'
 
 declare global {
 	interface RegExpConstructor {
-		escape: RegExpEscapeFn
+		escape: typeof regExpEscape
 	}
 }
 

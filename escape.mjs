@@ -19,12 +19,7 @@ const SURROGATE = /^[\uD800-\uDFFF]$/
 const DECIMAL_DIGIT = /^[0-9]$/
 const ASCII_LETTER = /^[a-zA-Z]$/
 
-/**
- * Escapes arbitrary text for interpolation into a regexp, such that it will match exactly that text and nothing else.
- *
- * @param {string} str - The string to escape.
- * @returns {string} the escaped string.
- */
+/** @type {import('./escape.types.ts').regExpEscape} */
 export const regExpEscape = (str) => {
 	if (typeof str !== 'string') {
 		throw new TypeError('Expected a string')
