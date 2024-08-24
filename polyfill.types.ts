@@ -5,8 +5,8 @@
  *
  * @example
  * ```ts
- * import 'jsr:@li/regexp-escape-polyfill/global'
- * import type { regExpEscape } from 'jsr:@li/regexp-escape-polyfill/global'
+ * import '@li/regexp-escape-polyfill/global'
+ * import type { regExpEscape } from '@li/regexp-escape-polyfill/global'
  *
  * declare global {
  * 	interface RegExpConstructor {

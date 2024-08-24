@@ -9,7 +9,7 @@ Currently passes all [test262](https://github.com/tc39/test262/tree/main/test/bu
 ### Ponyfill (no global patching)
 
 ```js
-import { regExpEscape } from 'jsr:@li/regexp-escape-polyfill'
+import { regExpEscape } from '@li/regexp-escape-polyfill'
 
 const str = 'Hello, 🌍!$^.'
 
@@ -20,7 +20,7 @@ new RegExp(regExpEscape(str)).test(str) // true
 ### Polyfill (patches `RegExp` globally)
 
 ```js
-import 'jsr:@li/regexp-escape-polyfill/global'
+import '@li/regexp-escape-polyfill/global'
 
 const str = 'Hello, 🌍!$^.'
 
@@ -32,8 +32,8 @@ new RegExp(RegExp.escape(str)).test(str) // true
 <!-- Must be patched in manually due to https://github.com/denoland/deno/issues/23427 -->
 
 ```ts
-import 'jsr:@li/regexp-escape-polyfill/global'
-import type { regExpEscape } from 'jsr:@li/regexp-escape-polyfill/global'
+import '@li/regexp-escape-polyfill/global'
+import type { regExpEscape } from '@li/regexp-escape-polyfill/global'
 
 declare global {
 	interface RegExpConstructor {

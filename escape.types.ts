@@ -5,7 +5,7 @@
  *
  * @example
  * ```ts
- * import { regExpEscape } from 'jsr:@li/regexp-escape-polyfill'
+ * import { regExpEscape } from '@li/regexp-escape-polyfill'
  *
  * const str = 'Hello, 🌍!$^.'
  *
