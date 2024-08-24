@@ -1,12 +1,10 @@
 {
 	"lock": false,
 	"name": "@li/regexp-escape-polyfill",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"exports": {
-		".": "./escape.mjs"
-		// // Polyfill version can't currently be distributed via JSR due to
-		// // lack of support for global type augmentations https://github.com/denoland/deno/issues/23427
-		// "polyfill": "./polyfill.mjs",
+		".": "./escape.mjs",
+		"./global": "./polyfill.mjs"
 	},
 	"tasks": {},
 	"imports": {

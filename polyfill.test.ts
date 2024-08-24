@@ -1,7 +1,14 @@
 #!/usr/bin/env -S deno test -A --watch
 
 import './polyfill.mjs'
+import type { RegExpEscapeFn } from './polyfill.mjs'
 import { assertEquals, assertMatch } from '@std/assert'
+
+declare global {
+	interface RegExpConstructor {
+		escape: RegExpEscapeFn
+	}
+}
 
 const tests = [
 	['Hello, 🌍!$^.', '\\x48ello\\x2c\\x20🌍\\x21\\$\\^\\.'],
