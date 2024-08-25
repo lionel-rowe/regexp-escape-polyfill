@@ -1,4 +1,4 @@
-# `RegExp.escape` polyfill and ponyfill
+# `RegExp.escape` polyfill and ponyfill [![JSR](https://jsr.io/badges/@li/regexp-escape-polyfill)](https://jsr.io/@li/regexp-escape-polyfill)
 
 Polyfill and ponyfill for the upcoming [`escape()`](https://github.com/tc39/proposal-regex-escaping/) static method of `RegExp` (proposal currently at Stage 3).
 
