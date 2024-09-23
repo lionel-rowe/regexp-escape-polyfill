@@ -1,6 +1,6 @@
 # `RegExp.escape` polyfill and ponyfill [![JSR](https://jsr.io/badges/@li/regexp-escape-polyfill)](https://jsr.io/@li/regexp-escape-polyfill)
 
-Polyfill and ponyfill for the upcoming [`escape()`](https://github.com/tc39/proposal-regex-escaping/) static method of `RegExp` (proposal currently at Stage 3).
+Lightweight polyfill and ponyfill for the upcoming [`escape()`](https://github.com/tc39/proposal-regex-escaping/) static method of `RegExp` (proposal currently at Stage 3).
 
 Currently passes all [test262](https://github.com/tc39/test262/tree/main/test/built-ins/RegExp/escape) tests except for `cross-realm.js`, which I'm ignoring for now.
 
